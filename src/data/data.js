@@ -1,4 +1,6 @@
 import placeholderImg from "../assets/placeholder.png";
+import structureImg from "../assets/structure.png";
+import collapsedImg from "../assets/collapsed.png";
 
 export const towers = [
   {
@@ -27,11 +29,13 @@ export const towers = [
 export const floors = {
   "A": Array.from({ length: 12 }, (_, i) => ({
     "number": i + 1,
-    "description": `Tower A - Floor ${i + 1} description`
+    "description": `Tower A - Floor ${i + 1} description`,
+    "image": collapsedImg
   })),
   "B": Array.from({ length: 13 }, (_, i) => ({
     "number": i + 1,
-    "description": `Tower B - Floor ${i + 1} description`
+    "description": `Tower B - Floor ${i + 1} description`,
+    "image": collapsedImg
   })),
   "C": Array.from({ length: 15 }, (_, i) => ({
     "number": i + 1,
@@ -41,10 +45,10 @@ export const floors = {
 
 function makeLayouts(towerId, floorCount) {
   const types = [
-    { type: "1-Bedroom", area: "700 sqft", rooms: 1, img: "/placeholder-1bed.jpg" },
-    { type: "2-Bedroom", area: "900 sqft", rooms: 2, img: "/placeholder-2bed.jpg" },
-    { type: "3-Bedroom", area: "1200 sqft", rooms: 3, img: "/placeholder-3bed.jpg" },
-    { type: "Penthouse", area: "2000 sqft", rooms: 4, img: "/placeholder-penthouse.jpg" }
+    { type: "1-Bedroom", area: "700 sqft", rooms: 1, img: structureImg },
+    { type: "2-Bedroom", area: "900 sqft", rooms: 2, img: collapsedImg },
+    { type: "3-Bedroom", area: "1200 sqft", rooms: 3, img: structureImg },
+    { type: "Penthouse", area: "2000 sqft", rooms: 4, img: placeholderImg },
   ];
   const layouts = {};
   for (let f = 1; f <= floorCount; f++) {

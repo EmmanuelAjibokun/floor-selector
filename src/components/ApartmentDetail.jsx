@@ -1,23 +1,31 @@
 // src/components/ApartmentDetails.jsx
 import { useState } from 'react';
 import { FiChevronLeft, FiChevronRight, FiX, FiHome } from 'react-icons/fi';
+import { useRef } from 'react';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import './ApartmentDetail.css'; // You need to create this CSS file
 
 const ApartmentDetail = ({ apartment, apartments, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(
     apartments.findIndex(a => a.id === apartment.id)
   );
 
+  const currentApartment = apartments[currentIndex];
+
+  const [direction, setDirection] = useState('right');
+  const nodeRef = useRef(null);
+
   const goToPrev = () => {
+    setDirection('left');
     const prevIndex = (currentIndex - 1 + apartments.length) % apartments.length;
     setCurrentIndex(prevIndex);
   };
 
   const goToNext = () => {
+    setDirection('right');
     const nextIndex = (currentIndex + 1) % apartments.length;
     setCurrentIndex(nextIndex);
   };
-
-  const currentApartment = apartments[currentIndex];
 
   return (
     <div
@@ -34,13 +42,31 @@ const ApartmentDetail = ({ apartment, apartments, onClose }) => {
           <FiX />
         </button>
 
-        {/* Image section */}
+        {/* Image section with slide animation */}
         <div className="relative w-full max-w-2xl">
-          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full aspect-[4/3] flex items-center justify-center text-gray-500">
-            Apartment Layout
-          </div>
-
-
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={currentApartment.id}
+              nodeRef={nodeRef}
+              timeout={300}
+              classNames={direction === 'right' ? 'slide-right' : 'slide-left'}
+              unmountOnExit
+            >
+              <div ref={nodeRef}>
+                {currentApartment.image ? (
+                  <img
+                    src={currentApartment.image}
+                    alt={currentApartment.name || "Apartment"}
+                    className="w-full aspect-[4/3]"
+                  />
+                ) : (
+                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full aspect-[4/3] flex items-center justify-center text-gray-500">
+                    Apartment Layout
+                  </div>
+                )}
+              </div>
+            </CSSTransition>
+          </SwitchTransition>
         </div>
 
         {Object.keys(currentApartment.meta).length > 0 && (
