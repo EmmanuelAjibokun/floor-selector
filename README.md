@@ -1,12 +1,17 @@
-# React + Vite
+# Floor Selector
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Floor Selector is a web application that allows users to select and visualize different floors of a building. It provides an interactive interface for navigating between floor plans, making it useful for property management, facility navigation, or architectural visualization.
 
-Currently, two official plugins are available:
+## Tools & Libraries Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** for building the user interface
+- **CSS Transition** for fluid transition animation during navigation
+- **React Router** for navigation
+- **Styled Components** for styling
+- **Vite** for fast development and build tooling
 
-## Expanding the ESLint configuration
+## Known Limitations / Tradeoffs
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Currently supports only static floor data; dynamic data loading is not implemented.
+- Mobile responsiveness is basic and may require further enhancements.
+- Accessibility features are limited and may need improvement for full compliance.
