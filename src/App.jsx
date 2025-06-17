@@ -1,9 +1,12 @@
 import './App.css'
+import TowerOverview from './components/TowerOverview'
 
 function App() {
 
   return (
-    <h1 className='underline font-extrabold'>Hello World</h1>
+    <div>
+      <TowerOverview/>
+    </div>
   )
 }
 
