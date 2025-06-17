@@ -5,15 +5,19 @@ const Card = ({
   description = "No description provided.",
   imageUrl = "https://via.placeholder.com/300x200",
   meta = {},
+  onClick = () => {},
 }) => {
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
+    <div 
+      className="cursor-pointer max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300"
+      onClick={onClick}
+    >
       {/* Image */}
       <div className="h-48 overflow-hidden">
         <img
           src={imageUrl}
           alt={title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full hover:scale-105 transition-transform duration-300"
         />
       </div>
 
