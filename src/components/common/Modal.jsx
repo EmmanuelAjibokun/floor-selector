@@ -5,7 +5,8 @@ const Modal = ({ isVisible, onClose, children, title }) => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 overflow-hidden z-[100]"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5 overflow-hidden z-[100]"
+      style={{ background: "rgba(0,0,0,0.8)" }}
       onClick={onClose}
     >
       <div
