@@ -1,9 +1,9 @@
-import React from "react";
+import imagePlaceholder from "../../assets/image.png"; // Adjust the path as necessary
 
 const Card = ({
-  title = "Untitled",
-  description = "No description provided.",
-  imageUrl = "https://via.placeholder.com/300x200",
+  title,
+  description,
+  imageUrl = imagePlaceholder,
   meta = {},
   onClick = () => {},
 }) => {
@@ -24,10 +24,10 @@ const Card = ({
       {/* Content */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+        {title && <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>}
 
         {/* Description */}
-        <p className="text-gray-600 mb-4">{description}</p>
+        {description && <p className="text-gray-600 mb-4">{description}</p>}
 
         {/* Metadata (e.g., area, room count) */}
         {Object.keys(meta).length > 0 && (

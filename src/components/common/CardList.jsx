@@ -1,5 +1,5 @@
 import Card from "./Card";
-import placeholderImg from "../../assets/placeholder.png";
+// import placeholderImg from "../../assets/placeholder.png";
 
 export default function CardList({ data, onSelect }) {
   return data.length > 0 ? (
@@ -9,7 +9,7 @@ export default function CardList({ data, onSelect }) {
           key={item.id}
           title={item.name}
           description={item.description}
-          imageUrl={item.image || placeholderImg}
+          imageUrl={item.image}
           meta={item.meta}
           onClick={() => onSelect(item)}
         />
