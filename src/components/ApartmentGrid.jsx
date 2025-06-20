@@ -1,6 +1,7 @@
 import CardList from "./common/CardList";
 import { layouts } from "../data/data";
-import ApartmentDetail from "./ApartmentDetail";
+// import ApartmentDetail from "./ApartmentDetail";
+import ApartmentDetail2 from "./ApartmentDetail2";
 
 import { useState } from "react";
 
@@ -23,7 +24,7 @@ export default function ApartmentGrid({towerId, floorId}) {
         onSelect={handleApartmentDetails}
       />
       {showDetails && selectedApartment && (
-        <ApartmentDetail
+        <ApartmentDetail2
           apartment={selectedApartment}
           apartments={apartments}
           onClose={() => setShowDetails(false)}

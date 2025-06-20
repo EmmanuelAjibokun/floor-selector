@@ -1,6 +1,8 @@
 import placeholderImg from "../assets/placeholder.png";
 import structureImg from "../assets/structure.png";
 import collapsedImg from "../assets/collapsed.png";
+import houseImg from "../assets/previews/house.png";
+import HouseModel from "../../public/House";
 
 export const towers = [
   {
@@ -45,16 +47,17 @@ export const floors = {
 
 function makeLayouts(towerId, floorCount) {
   const types = [
-    { type: "1-Bedroom", area: "700 sqft", rooms: 1, img: structureImg },
-    { type: "2-Bedroom", area: "900 sqft", rooms: 2, img: collapsedImg },
-    { type: "3-Bedroom", area: "1200 sqft", rooms: 3, img: structureImg },
-    { type: "Penthouse", area: "2000 sqft", rooms: 4, img: placeholderImg },
+    { type: "1-Bedroom", area: "700 sqft", rooms: 1, img: structureImg, model: HouseModel },
+    { type: "2-Bedroom", area: "900 sqft", rooms: 2, img: collapsedImg, model: HouseModel },
+    { type: "3-Bedroom", area: "1200 sqft", rooms: 3, img: houseImg, model: HouseModel },
+    { type: "Penthouse", area: "2000 sqft", rooms: 4, img: placeholderImg, model: HouseModel },
   ];
   const layouts = {};
   for (let f = 1; f <= floorCount; f++) {
     layouts[f] = Array.from({ length: 4 }, (_, i) => ({
       id: `${towerId}${f}-${100 + i + 1}`,
       image: types[i % types.length].img,
+      model: types[i % types.length].model,
       meta: {
         type: types[i % types.length].type,
         area: types[i % types.length].area,

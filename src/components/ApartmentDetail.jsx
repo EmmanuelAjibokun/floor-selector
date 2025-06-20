@@ -1,9 +1,36 @@
 // src/components/ApartmentDetails.jsx
-import { useState } from 'react';
+import { useState, useRef, Suspense, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight, FiX, FiHome } from 'react-icons/fi';
-import { useRef } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-import './ApartmentDetail.css'; // You need to create this CSS file
+import './ApartmentDetail.css';
+
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { OrbitControls, Environment, useGLTF } from '@react-three/drei';
+import House from '../../public/House';
+
+
+// Camera Controls
+function CameraControls() {
+  const { camera } = useThree();
+  
+  // Set initial camera position
+  useEffect(() => {
+    camera.position.set(0, 3, 10);
+    camera.lookAt(0, 0, 0);
+  }, [camera]);
+  
+  return (
+    <OrbitControls 
+      enablePan={true}
+      enableZoom={true}
+      enableRotate={true}
+      minDistance={5}
+      maxDistance={20}
+    />
+  );
+}
+
+
 
 const ApartmentDetail = ({ apartment, apartments, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(

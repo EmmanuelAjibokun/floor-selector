@@ -17,7 +17,7 @@ const Card = ({
         <img
           src={imageUrl}
           alt={title}
-          className="w-full h-full hover:scale-105 transition-transform duration-300"
+          className="w-full h-full hover:scale-105 transition-transform duration-300 object-contain"
         />
       </div>
 
